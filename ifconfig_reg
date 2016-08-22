@@ -1,0 +1,8 @@
+#!/bin/bash
+ip_file="./ip_file"
+igb_file="./igb_file"
+hostname -I | awk 'gsub(" ","\n")' | sed '/^$/d' > $ip_file
+ifconfig | grep "Link encap" | awk '{print $1}' | grep -wv "lo" > $igb_file
+
+paste -d ":" $ip_file $igb_file
+

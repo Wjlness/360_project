@@ -1,0 +1,6 @@
+用root用户建立信任连接。
+Client ip 172.25.254.1
+Server ip 172.25.254.2
+Client: ssh-keygen
+	ssh-copy-id -i root@172.25.254.2
+这样建立root信任后，client端的root用户访问server端不需要输入密码就可以直接访问。而普通用户则需要输入密码才能访问server端。并且client和server端的普通用户都没有看到这个文件的权限。
